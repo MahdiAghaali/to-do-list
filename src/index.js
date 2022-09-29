@@ -1,14 +1,25 @@
-import _ from 'lodash';
 import './style.css';
+import ToDoList from './ToDoList.js';
 
-function component() {
-  const element = document.createElement('div');
+const listContainer = document.getElementById('list');
+const list = new ToDoList(listContainer);
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+list.tasks = [
+  {
+    description: 'this is the first task',
+    isCompleted: true,
+    id: 0,
+  },
+  {
+    description: 'this is the second task',
+    isCompleted: true,
+    id: 1,
+  },
+  {
+    description: 'this is the third task',
+    isCompleted: true,
+    id: 2,
+  },
+];
 
-  return element;
-}
-
-document.body.appendChild(component());
+list.updateList();
