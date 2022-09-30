@@ -41,11 +41,21 @@ h1 {
   justify-content: space-between;
 }
 
-.task .remove {
+.task input[type=text] {
+  border: none;
+}
+
+.task .remove,
+.task .edit {
   display: none;
 }
 
-.task.selected .remove {
+.task.selected {
+  background-color: antiquewhite;
+}
+
+.task.selected .remove,
+.task.selected .edit {
   display: block;
 }
 
@@ -53,7 +63,7 @@ h1 {
   display: none;
 }
 
-.task.checked span {
+.task.checked input {
   text-decoration: line-through;
   color: gray;
   font-style: italic;
@@ -77,4 +87,16 @@ h1 {
 
 #taskInput:focus {
   outline: none;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 15px;
+}
+
+#removeAll {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 0 0 5px 5px;
 }
