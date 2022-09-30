@@ -17,8 +17,9 @@ export default class ToDoList {
       const task = new Task(id, description, isCompleted);
       task.showTask(this.container);
 
-      const lastInput = document.querySelectorAll(`input[id ="${i + 1}"]`);
+      const lastInput = document.querySelectorAll(`input[type="text"][id ="${i + 1}"]`);
       lastInput[0].addEventListener('keyup', (e) => {
+        console.log(e.target.value);
         this.tasks[i].description = e.target.value;
         localStorage.setItem('ToDoList', JSON.stringify(this.tasks));
       });
