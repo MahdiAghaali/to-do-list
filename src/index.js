@@ -3,23 +3,36 @@ import ToDoList from './ToDoList.js';
 
 const listContainer = document.getElementById('list');
 const list = new ToDoList(listContainer);
-
-list.tasks = [
-  {
-    description: 'this is the first task',
-    isCompleted: true,
-    id: 0,
-  },
-  {
-    description: 'this is the second task',
-    isCompleted: true,
-    id: 1,
-  },
-  {
-    description: 'this is the third task',
-    isCompleted: true,
-    id: 2,
-  },
-];
+const taskInput = document.getElementById('taskInput');
+const btnClearAll = document.getElementById('removeAll');
 
 list.updateList();
+
+const submit = () => {
+  if (taskInput.value === '') {
+    return;
+  }
+  const task = {
+    description: taskInput.value,
+    isCompleted: false,
+    id: list.tasks.length + 1,
+  };
+  list.addTask(task);
+  taskInput.value = '';
+};
+
+document.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    submit();
+  }
+});
+
+document.getElementById('enter').addEventListener('click', submit);
+
+btnClearAll.addEventListener('click', () => {
+  for (let i = list.tasks.length - 1; i >= 0; i -= 1) {
+    if (list.tasks[i].isCompleted === true) {
+      list.removeTask(i);
+    }
+  }
+});
