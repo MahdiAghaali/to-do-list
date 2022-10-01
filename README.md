@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To-do list
 
-> Description the project.
+> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. 
 
 
 ## Built With
@@ -11,6 +11,7 @@
 - HTML5
 - CSS3
 - Webpack
+- ES6
 
 ## Live Demo
 
@@ -18,7 +19,7 @@
 
 ## How to use
 
-1. Clone the project using "git clone https://github.com/MahdiAghaali/Awesome-books"
+1. Clone the project using "git clone https://github.com/MahdiAghaali/to-do-list"
 2. Run the projec on a server (example: [live server on vscode](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer))
 
 ## Authors
