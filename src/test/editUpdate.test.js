@@ -40,4 +40,21 @@ describe('UnitTests', () => {
     list.toggleTask(list.tasks.length - 1);
     expect(list.tasks[list.tasks.length - 1].isCompleted).toBe(true);
   });
+
+  test('Clear All function', () => {
+    document.body.innerHTML = '<ul id="list"></ul>';
+    const listContainer = document.getElementById('list');
+    const list = new ToDoList(listContainer);
+    const task = {
+      description: 'taskInput.asdgeasdgaefawsvalue',
+      isCompleted: true,
+      id: list.tasks.length + 1,
+    };
+    list.addTask(task);
+    list.addTask(task);
+    clearAll(list);
+
+    const numberOfCompleted = list.tasks.filter((task) => task.isCompleted === true).length;
+    expect(numberOfCompleted).toBe(0);
+  });
 });
