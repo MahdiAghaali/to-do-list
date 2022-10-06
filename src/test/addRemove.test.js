@@ -29,5 +29,4 @@ describe('UnitTests', () => {
     list.removeTask(0);
     expect(list.tasks).toHaveLength(1);
   });
-
 });
