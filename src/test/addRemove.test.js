@@ -21,4 +21,13 @@ describe('UnitTests', () => {
     list.addTask(task);
     expect(list.tasks.length).toBe(2);
   });
+
+  test('remove function', () => {
+    document.body.innerHTML = '<ul id="list"></ul>';
+    const listContainer = document.getElementById('list');
+    const list = new ToDoList(listContainer);
+    list.removeTask(0);
+    expect(list.tasks).toHaveLength(1);
+  });
+
 });
