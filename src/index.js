@@ -1,10 +1,10 @@
 import './style.css';
-import ToDoList from './ToDoList.js';
+import ToDoList from './toDoList.js';
+import { clearAll } from './clearAll.js';
 
 const listContainer = document.getElementById('list');
 const list = new ToDoList(listContainer);
 const taskInput = document.getElementById('taskInput');
-const btnClearAll = document.getElementById('removeAll');
 
 list.updateList();
 
@@ -29,10 +29,5 @@ document.addEventListener('keypress', (e) => {
 
 document.getElementById('enter').addEventListener('click', submit);
 
-btnClearAll.addEventListener('click', () => {
-  for (let i = list.tasks.length - 1; i >= 0; i -= 1) {
-    if (list.tasks[i].isCompleted === true) {
-      list.removeTask(i);
-    }
-  }
-});
+const btnClearAll = document.getElementById('removeAll');
+btnClearAll.addEventListener('click', clearAll(list));
