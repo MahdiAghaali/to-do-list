@@ -2,7 +2,10 @@ import Task from './Task.js';
 
 export default class ToDoList {
   constructor(element) {
-    this.container = element;
+    this.container = '';
+    if (element) {
+      this.container = element;
+    }
     this.tasks = [];
     if (localStorage.getItem('ToDoList') !== null) {
       this.tasks = JSON.parse(localStorage.getItem('ToDoList'));
@@ -18,11 +21,10 @@ export default class ToDoList {
       task.showTask(this.container);
 
       const lastInput = document.querySelectorAll(`input[type="text"][id ="${i + 1}"]`);
-      lastInput[0].addEventListener('keyup', (e) => {
+      lastInput[0].addEventListener('keypress', (e) => {
         this.tasks[i].description = e.target.value;
         localStorage.setItem('ToDoList', JSON.stringify(this.tasks));
       });
-
       const lastcheckbox = document.querySelectorAll(`input[type="checkbox"][id ="${i + 1}"]`);
       lastcheckbox[0].addEventListener('change', () => {
         this.toggleTask(i);

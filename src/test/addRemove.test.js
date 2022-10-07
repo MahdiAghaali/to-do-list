@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import ToDoList from '../ToDoList.js';
+import ToDoList from '../toDoList.js';
 
 const dom = new JSDOM();
 global.document = dom.window.document;
